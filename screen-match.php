@@ -1,18 +1,6 @@
 <?php
 
-function exibe_mensagem_ano_lancamento (int $ano): void {
-    if ($ano > 2022) {
-        echo "Esse filme é um lançamento\n";
-    } elseif($ano > 2020 && $ano <= 2022) {
-        echo "Esse filme ainda é novo\n";
-    } else {
-        echo "Esse filme não é um lançamento\n";
-    }
-}
-
-function incluido_no_plano(bool $plano, int $ano): bool {
-    return $plano || $ano < 2020;
-}
+require "functions.php";
 
 echo "Bem-vindo(a) ao screen match!\n";
 
@@ -55,4 +43,13 @@ $filme = [
 ];
 
 
-echo $filme["ano"];
+echo $filme["ano"] . "\n";
+
+var_dump($notas);
+sort($notas);
+var_dump($notas);
+var_dump(min($notas));
+
+$posicao_string = strpos($filme['nome'], ':');
+
+var_dump(substr($filme['nome'], 0, $posicao_string));
