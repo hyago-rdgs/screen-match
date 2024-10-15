@@ -1,6 +1,7 @@
 <?php
 
-require "functions.php";
+require __DIR__ . "/src/Model/Filme.php";
+require __DIR__ . "/src/functions.php";
 
 echo "Bem-vindo(a) ao screen match!\n";
 
@@ -18,13 +19,13 @@ for ($contador = 1; $contador < $argc; $contador++) {
 $notaFilme = array_sum($notas) / $quantidadeDeNotas;
 $planoPrime = true;
 
-$incluidoNoPlano = incluido_no_plano($planoPrime, $anoLancamento);
+// $incluidoNoPlano = incluido_no_plano($planoPrime, $anoLancamento);
 
 echo "Nome do filme: " . $nomeFilme . "\n";
 echo "Nota do filme: $notaFilme\n";
 echo "Ano de lançamento: $anoLancamento\n";
 
-exibe_mensagem_ano_lancamento($anoLancamento);
+// exibe_mensagem_ano_lancamento($anoLancamento);
 
 $genero = match ($nomeFilme) {
     "Top Gun - Maverick" => "ação",
@@ -35,13 +36,13 @@ $genero = match ($nomeFilme) {
 
 echo "O gênero do filme é: $genero\n";
 
-$filme = criar_filme(
-    nome: "Thor: Ragnarok", 
-    ano_lancamento: 2021, 
-    nota: 9.8, 
-    genero: "super-herói");
+// $filme = criar_filme(
+//     nome: "Thor: Ragnarok", 
+//     ano_lancamento: 2021, 
+//     nota: 9.8, 
+//     genero: "super-herói");
 
-echo $filme["ano"] . "\n";
+echo $filme->ano_lancamento . "\n";
 
 $arquivo_json = json_encode($filme);
 
